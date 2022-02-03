@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var student = require('./Models/Student')
+var student = require('./Models/Students')
 
 
 
 //api to fetch data
-router.get('/sudents',async(req,res)=>{
+router.get('/students',async(req,res)=>{
     const stud = await student.find()
     res.send(stud)
 })
