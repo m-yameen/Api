@@ -16,7 +16,7 @@ router.get('/students',async(req,res)=>{
 router.post("/students",async(req,res)=>{
     const stud = new student({
         name:req.body.name,
-        er:req.body.rating,
+        er:req.body.er,
         branch:req.body.branch
     })
     await stud.save((err,msg)=>{
