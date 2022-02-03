@@ -44,12 +44,12 @@ router.patch('/students/:id',async (req,res)=>{
     await stud.save((err,msg)=>{
         if(err){
             res.status(500).json({
-                error:err
+                "error":err
             })
         }
         else{
             res.status(200).json({
-                msg:msg
+                "My-message":msg
             })
         }
     })
