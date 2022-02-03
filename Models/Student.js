@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 
-var studentsSchema = mongoose.Schema({
+var studentSchema = mongoose.Schema({
     name:String,
     er:Number,
     branch:String
 })
 
-module.exports = mongoose.model("students",studentsSchema)
+module.exports = mongoose.model("students",studentSchema)
