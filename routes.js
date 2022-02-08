@@ -59,18 +59,30 @@ router.patch('/students/:id',async (req,res)=>{
 
 //delete api
 router.delete("/students/:name",async(req,res)=>{
-    await student.deleteOne({name:req.params.name},(err,msg)=>{
-        if(err){
-            res.status(500).json({
-                error:err
-            })
-        }
-        else{
-            res.status(200).json({
-                msg:msg
-            })
-        }
-    })
+    const nam = req.params.name;
+    await student.findByIdAndDelete(nam,(err,msg)=>{
+            if(err){
+                res.status(500).json({
+                    error:err
+                })
+            }
+            else{
+                res.status(200).json({
+                    msg:msg
+                })
+            }
+        })
 })
-
+// await student.deleteOne({name:req.params.name},(err,msg)=>{
+    //     if(err){
+    //         res.status(500).json({
+    //             error:err
+    //         })
+    //     }
+    //     else{
+    //         res.status(200).json({
+    //             msg:msg
+    //         })
+    //     }
+    // })
 module.exports = router 
