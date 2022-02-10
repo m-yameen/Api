@@ -59,17 +59,13 @@ router.patch('/students/:id',async (req,res)=>{
 
 //delete api
 router.delete("/students/:id",async(req,res)=>{
-    await student.findByIdAndDelete(req.params.id,(err,msg)=>{
-        if(err){
-            res.status(500).json({
-                "error":err
-            })
+    student.findByIdAndDelete(req.params.id).then((student) => {
+        if (!student) {
+            return res.status(404).send();
         }
-        else{
-            res.status(200).json({
-                "msg":msg
-            })
-        }
+        res.send(student);
+    }).catch((error) => {
+        res.status(500).send(error);
     })
 })
 
