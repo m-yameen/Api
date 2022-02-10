@@ -59,7 +59,7 @@ router.patch('/students/:id',async (req,res)=>{
 
 //delete api
 router.delete("/students/:id",async(req,res)=>{
-    await student.findOneAndDelete({_id:req.params.id},(err,msg)=>{
+    await student.findByIdAndDelete(req.params.id,(err,msg)=>{
         if(err){
             res.status(500).json({
                 "error":err
